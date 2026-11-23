@@ -15,7 +15,7 @@
   --clr-instagram-gradient: linear-gradient(to right, hsl(37, 97%, 70%), hsl(5, 77%, 71%), hsl(329, 70%, 58%));
   --clr-youtube: hsl(348, 97%, 39%);
 
-  --clr-toggle-hover: linear-gradient(hsl(210, 79%, 56%) to hsl(146, 68%, 55%));
+  --clr-toggle-hover: linear-gradient(to right, hsl(210, 79%, 56%), hsl(146, 68%, 55%));
 
   --fw-400: 400;
   --fw-700: 700;
@@ -23,11 +23,11 @@
 
 .dark-mode {
   --clr-bg: hsl(230, 17%, 14%);
-  --clr-card-bg: hsl(232, 19%, 15%);
-  --clr-card-hover: hsl(228, 28%, 20%);
+  --clr-card-bg: hsl(228, 28%, 20%);
+  --clr-card-hover: hsl(234, 25%, 25%);
   --clr-text-secondary: hsl(230, 22%, 74%);
   --clr-text-main: hsl(0, 100%, 100%);
-  --clr-toggle: linear-gradient(hsl(210, 79%, 56%) to hsl(146, 68%, 55%));
+  --clr-toggle: linear-gradient(to right, hsl(210, 79%, 56%), hsl(146, 68%, 55%));
 }
 
 * {
@@ -101,7 +101,6 @@ body {
   height: 0;
 }
 
-/* The slider */
 .slider {
   position: absolute;
   cursor: pointer;
@@ -128,6 +127,10 @@ body {
   background-color: white;
   -webkit-transition: 0.4s;
   transition: 0.4s;
+}
+
+.slider:hover {
+  background: var(--clr-toggle-hover);
 }
 
 input:checked + .slider {
@@ -243,6 +246,10 @@ input:checked + .slider:before {
   margin-bottom: 1.5rem;
 }
 
+.dark-mode .overview-container h2 {
+  color: var(--clr-text-main);
+}
+
 .overview-cards {
   display: grid;
   gap: 1rem;
@@ -291,4 +298,37 @@ input:checked + .slider:before {
 /* DESKTOP */
 
 @media (min-width: 70em) {
+  .dashboard-container {
+    max-width: 80%;
+  }
+
+  header {
+    display: flex;
+    justify-content: space-between;
+
+    margin-bottom: 2rem;
+  }
+
+  .line {
+    display: none;
+  }
+
+  .toggle-container {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+  }
+
+  .toggle-container p {
+    margin-bottom: 0.5rem;
+  }
+
+  .followers-dashboard {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .overview-cards {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+  }
 }
